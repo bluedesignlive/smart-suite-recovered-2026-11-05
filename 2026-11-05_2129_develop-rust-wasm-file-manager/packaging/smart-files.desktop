@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Application
+Name=Smart Files
+GenericName=File Manager
+Comment=A fast, fault-tolerant file manager written in Rust
+Exec=smart-files %F
+Icon=smart-files
+Terminal=false
+Categories=System;FileTools;FileManager;Utility;
+MimeType=inode/directory;
+StartupWMClass=smart-files
+Keywords=files;folders;explorer;browser;drives;trash;
+Actions=NewWindow;
+
+[Desktop Action NewWindow]
+Name=New Window
+Exec=smart-files

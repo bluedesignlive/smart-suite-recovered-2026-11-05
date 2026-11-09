@@ -1,0 +1,22 @@
+[package]
+name = "smart-core"
+version = "0.1.0"
+edition = "2021"
+description = "Smart Files backend: virtual filesystems, jobs, search, archives, assistant. UI-agnostic."
+
+[dependencies]
+nucleo-matcher = "0.3"
+zip = { version = "2.4", default-features = false, features = ["deflate"] }
+tar = { version = "0.4", default-features = false }
+flate2 = "1"
+lzma-rs = "0.3"
+bzip2-rs = "0.1"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std", "wasmbind"] }
+web-time = "1"
+imagesize = "0.13"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+dirs = "6"
+trash = "5"
+open = "5"
+sysinfo = { version = "0.33", default-features = false, features = ["disk"] }

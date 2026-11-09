@@ -1,0 +1,66 @@
+#!/bin/sh
+# Smart Files — AppImage launcher with a scripted fallback chain.
+#
+# The app uses Wayland when WAYLAND_DISPLAY is set (Wayfire, GNOME/KDE Wayland) and X11 otherwise (GNOME X11, i3, ...).
+# If a start-up attempt dies quickly (no GL, a compositor without transparency, a broken driver ...) we retry with
+# progressively more conservative settings instead of leaving the user with a dead icon:
+#
+#   1. auto             native backend, transparent rounded window
+#   2. x11              force the X11 backend (XWayland works too)
+#   3. x11 + opaque     no transparency, for bare X11 sessions without a compositor
+#   4. software + x11   Mesa llvmpipe, opaque
+#   5. software + wl    Mesa llvmpipe, opaque, Wayland
+#
+# A run that lasts longer than QUICK_FAIL seconds, or exits 0, is never retried.
+
+HERE="$(dirname "$(readlink -f "$0")")"
+BIN="$HERE/usr/bin/smart-files"
+QUICK_FAIL=4
+
+export APPDIR="$HERE"
+export LD_LIBRARY_PATH="$HERE/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export XDG_DATA_DIRS="$HERE/usr/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/smart-files"
+mkdir -p "$STATE" 2>/dev/null
+LOG="$STATE/launch.log"
+
+log() { printf '%s %s\n' "$(date '+%F %T')" "$*" >>"$LOG" 2>/dev/null; }
+
+# keep the log from growing without bound
+if [ -f "$LOG" ] && [ "$(wc -c <"$LOG" 2>/dev/null || echo 0)" -gt 200000 ]; then
+  tail -n 200 "$LOG" >"$LOG.tmp" 2>/dev/null && mv "$LOG.tmp" "$LOG"
+fi
+
+# informational flags: run once, no retries
+case "$1" in -h|--help|-V|--version|--crash-log) exec "$BIN" "$@" ;; esac
+
+# launch NAME "VAR=1 VAR2=x" [args...]
+launch() {
+  name="$1"; envs="$2"; shift 2
+  log "attempt: $name (session=${XDG_SESSION_TYPE:-?} wayland=${WAYLAND_DISPLAY:-none} x11=${DISPLAY:-none})"
+  start=$(date +%s)
+  ( for kv in $envs; do export "$kv"; done; "$BIN" "$@" )
+  code=$?
+  took=$(( $(date +%s) - start ))
+  log "attempt '$name' exited code=$code after ${took}s"
+  [ "$code" -eq 0 ] && exit 0
+  # it ran for a while: that is an application crash (see crash.log), not a launch problem
+  [ "$took" -gt "$QUICK_FAIL" ] && exit "$code"
+  return 0
+}
+
+launch "auto" "SMART_FILES_OPAQUE=${SMART_FILES_OPAQUE:-0}" "$@"
+if [ -n "$DISPLAY" ]; then
+  launch "x11"        "WINIT_UNIX_BACKEND=x11 SMART_FILES_OPAQUE=0" "$@"
+  launch "x11+opaque" "WINIT_UNIX_BACKEND=x11 SMART_FILES_OPAQUE=1" "$@"
+  launch "software"   "WINIT_UNIX_BACKEND=x11 SMART_FILES_OPAQUE=1 LIBGL_ALWAYS_SOFTWARE=1" "$@"
+fi
+if [ -n "$WAYLAND_DISPLAY" ]; then
+  launch "software/wayland" "WINIT_UNIX_BACKEND=wayland SMART_FILES_OPAQUE=1 LIBGL_ALWAYS_SOFTWARE=1" "$@"
+fi
+
+log "all launch attempts failed"
+echo "Smart Files could not open a window. See $LOG" >&2
+command -v notify-send >/dev/null 2>&1 && notify-send "Smart Files" "Could not open a window. See $LOG" 2>/dev/null
+exit 1

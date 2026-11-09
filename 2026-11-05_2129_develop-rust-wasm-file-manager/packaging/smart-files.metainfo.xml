@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>smart-files</id>
+  <name>Smart Files</name>
+  <summary>A fast, fault-tolerant file manager written in Rust</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>Smart Files browses your real file system with thumbnails, tabs, search, undo, safe deletion through the Trash,
+    archives and removable-drive mounting. One Rust code base runs natively on Linux, Windows and macOS and in the browser via WebAssembly.</p>
+  </description>
+  <launchable type="desktop-id">smart-files.desktop</launchable>
+  <categories><category>System</category><category>FileTools</category></categories>
+  <provides><binary>smart-files</binary></provides>
+</component>

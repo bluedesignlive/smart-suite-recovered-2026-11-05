@@ -1,0 +1,12 @@
+# Rust / Node build outputs (100% junk — never commit)
+**/target/
+**/.cargo/
+**/.rustup/
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+
+# OS junk
+.DS_Store
+Thumbs.db
+__MACOSX/

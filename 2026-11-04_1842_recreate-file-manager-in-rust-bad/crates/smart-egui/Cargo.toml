@@ -1,0 +1,34 @@
+[package]
+name = "smart-egui"
+version = "0.1.0"
+edition = "2021"
+description = "egui frontend for Smart Files (native + wasm)."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "smart-files"
+path = "src/main.rs"
+
+[features]
+default = []
+native-audio = ["dep:rodio"]
+
+[dependencies]
+smart-core = { path = "../smart-core" }
+egui = "0.32"
+eframe = { version = "0.32", default-features = false, features = ["glow", "default_fonts", "wayland", "x11"] }
+egui-phosphor = { version = "0.10", features = ["fill"] }
+imagesize = "0.13"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "gif"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rodio = { version = "0.20", default-features = false, features = ["symphonia-all"], optional = true }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+console_error_panic_hook = "0.1"
+web-sys = { version = "0.3", features = ["Window", "Document", "HtmlCanvasElement", "Element", "Blob", "BlobPropertyBag", "Url", "HtmlAnchorElement", "HtmlAudioElement", "HtmlMediaElement", "Location", "UrlSearchParams", "Navigator", "Clipboard", "HtmlElement", "CssStyleDeclaration"] }

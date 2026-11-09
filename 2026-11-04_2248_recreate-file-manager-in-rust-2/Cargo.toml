@@ -1,0 +1,14 @@
+[workspace]
+resolver = "2"
+members = ["crates/smart-core", "crates/smart-egui"]
+
+[profile.release]
+opt-level = "s"
+codegen-units = 1
+lto = "thin"
+panic = "abort"
+strip = true
+overflow-checks = false
+
+[profile.dev]
+opt-level = 1

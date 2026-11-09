@@ -1,0 +1,9 @@
+[package]
+name = "eiga-core"
+description = "Eiga (映画) engine: playback state machine, playlist, key map, subtitle parsers, ffprobe parsing and frame sources. No UI code."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde_json = "1"
