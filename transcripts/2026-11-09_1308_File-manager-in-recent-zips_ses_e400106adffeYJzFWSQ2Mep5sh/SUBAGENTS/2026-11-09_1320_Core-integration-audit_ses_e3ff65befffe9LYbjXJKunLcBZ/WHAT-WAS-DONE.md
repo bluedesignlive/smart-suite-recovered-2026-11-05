@@ -1,0 +1,167 @@
+# What was done — Core integration audit
+
+Session `ses_e3ff65befffe9LYbjXJKunLcBZ` | messages 43 | tools {'read': 23, 'shell': 30, 'write': 1}
+
+## Tool log
+
+- **[seq 5] 2026-11-09 13:20:19 `read`** (completed) — {'path': '/home/lufuno'}
+- **[seq 16] 2026-11-09 13:20:21 `shell`** (completed) — find /home/lufuno -maxdepth 2 -name "*.zip" -mtime -7 -printf "%T@ %TY-%Tm-%Td %TH:%TM %s %p\n" | sort -nr | head -n 100; echo "---"; ls -lth /home/lufuno/*.zip 2>/dev/null | head -n 50; echo "==="; ls -lth /home/lufuno/Downloads/*.zip 2>/dev/null | head -n 50; echo "==="; find /home/lufuno -name "*.zip" -mtime -7 -not -path "*/.*" 2>/dev/null | xa
+- **[seq 23] 2026-11-09 13:20:24 `shell`** (completed) — mkdir -p /tmp/opencode/canonical-core-audit/extracted # Locate canonical base smart-files + all 21 file-manager zips systematically ls -R /home/lufuno/smart 2>/dev/null | head -n 200 echo "=== smart-files search ===" find /home/lufuno -type d -name "smart-files" 2>/dev/null find /home/lufuno -type d -name "smart-core" 2>/dev/null echo "=== file-man
+- **[seq 30] 2026-11-09 13:20:31 `shell`** (completed) — echo "=== CANONICAL BASE /home/lufuno ===" ls -la /home/lufuno/crates/ 2>/dev/null echo "--- smart-core src ---" ls -lh /home/lufuno/crates/smart-core/src/ 2>/dev/null echo "--- eiga-core ---" ls -lh /home/lufuno/crates/eiga-core/src/ 2>/dev/null echo "--- ui ---" ls -lh /home/lufuno/crates/smart-ui-egui/src/ 2>/dev/null echo "--- xtask, scripts --
+- **[seq 37] 2026-11-09 13:20:33 `shell`** (completed) — python3 - <<'PY' import zipfile, os, hashlib, pathlib, glob, csv  roots = [] for pat in ["/home/lufuno/Documents/rust-wasm-media-manager*.zip",             "/home/lufuno/smart/smart-suite/apps/build-production-rust-file-manager*.zip",             "/home/lufuno/smart/smart-suite/apps/develop-rust-wasm-file-manager.zip",             "/home/lufuno/wor
+- **[seq 44] 2026-11-09 13:20:36 `shell`** (completed) — python3 - <<'PY' import zipfile, os, hashlib, glob, collections  zips = sorted(set(sum([glob.glob(p) for p in [     "/home/lufuno/Documents/rust-wasm-media-manager*.zip",     "/home/lufuno/smart/smart-suite/apps/build-production-rust-file-manager*.zip",     "/home/lufuno/smart/smart-suite/apps/develop-rust-wasm-file-manager.zip",     "/home/lufuno/
+- **[seq 51] 2026-11-09 13:20:46 `shell`** (completed) — mkdir -p /tmp/opencode/canonical-core-audit/extracted # Extract canonical base copies for deep read (use /home/lufuno/crates as source, no need to extract) # Also unzip a few key zips partially to /tmp for diffing unique variants python3 - <<'PY' import zipfile, os extract_map = {     "/home/lufuno/smart/smart-suite/apps/build-production-rust-file-
+- **[seq 58] 2026-11-09 13:20:49 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/lib.rs'}
+- **[seq 58] 2026-11-09 13:20:49 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/vfs.rs'}
+- **[seq 58] 2026-11-09 13:20:49 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/devices.rs'}
+- **[seq 58] 2026-11-09 13:20:49 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/local.rs'}
+- **[seq 58] 2026-11-09 13:20:49 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/ops.rs'}
+- **[seq 81] 2026-11-09 13:20:51 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/archive.rs'}
+- **[seq 81] 2026-11-09 13:20:51 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/backend.rs'}
+- **[seq 81] 2026-11-09 13:20:51 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/audio.rs'}
+- **[seq 81] 2026-11-09 13:20:51 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/exec.rs'}
+- **[seq 81] 2026-11-09 13:20:51 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/thumbs.rs'}
+- **[seq 104] 2026-11-09 13:20:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/analyze.rs'}
+- **[seq 104] 2026-11-09 13:20:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/search.rs'}
+- **[seq 104] 2026-11-09 13:20:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/demo.rs'}
+- **[seq 104] 2026-11-09 13:20:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/memfs.rs'}
+- **[seq 123] 2026-11-09 13:20:56 `read`** (completed) — {'path': '/home/lufuno/crates/eiga-core/src/lib.rs'}
+- **[seq 123] 2026-11-09 13:20:56 `read`** (completed) — {'path': '/home/lufuno/crates/eiga-core/src/player.rs'}
+- **[seq 123] 2026-11-09 13:20:56 `read`** (completed) — {'path': '/home/lufuno/crates/eiga-core/src/source.rs'}
+- **[seq 138] 2026-11-09 13:21:00 `shell`** (completed) — cat /home/lufuno/crates/smart-core/src/model.rs echo "=====REGISTRY=====" cat /home/lufuno/crates/smart-core/src/registry.rs echo "=====TOOLS=====" cat /home/lufuno/crates/smart-core/src/tools.rs echo "=====APPS head=====" head -n 120 /home/lufuno/crates/smart-core/src/apps.rs echo "=====LIBRARY head=====" head -n 120 /home/lufuno/crates/smart-core
+- **[seq 145] 2026-11-09 13:21:02 `shell`** (completed) — wc -l /home/lufuno/crates/smart-core/src/*.rs /home/lufuno/crates/eiga-core/src/*.rs /home/lufuno/crates/xtask/src/main.rs echo "=== subs ===" cat /home/lufuno/crates/eiga-core/src/subs.rs | head -n 80 echo "=== xtask ===" cat /home/lufuno/crates/xtask/src/main.rs | head -n 150 echo "=== appimage ===" cat /tmp/opencode/canonical-core-audit/extracte
+- **[seq 152] 2026-11-09 13:21:05 `shell`** (completed) — echo "=== diff archive.rs: canonical(18331) vs prod-vgood(23165) vs recreate(8160) ===" diff /home/lufuno/crates/smart-core/src/archive.rs /tmp/opencode/canonical-core-audit/extracted/prod-very-good/smart-files/crates/smart-core/src/archive.rs | head -n 300 echo "=====DIFF STAT=====" diff /home/lufuno/crates/smart-core/src/archive.rs /tmp/opencode/
+- **[seq 159] 2026-11-09 13:21:08 `shell`** (completed) — echo "=== ops diff develop vs canonical ===" diff /home/lufuno/crates/smart-core/src/ops.rs /tmp/opencode/canonical-core-audit/extracted/develop/crates/smart-core/src/ops.rs | head -n 200 echo "=== thumbs prod-vgood vs canonical ===" diff /home/lufuno/crates/smart-core/src/thumbs.rs /tmp/opencode/canonical-core-audit/extracted/prod-very-good/smart-
+- **[seq 166] 2026-11-09 13:21:12 `shell`** (completed) — echo "=== recreate store/engine/ai/sys/treemap ===" ls -lh /tmp/opencode/canonical-core-audit/extracted/recreate-2/crates/smart-core/src/ wc -l /tmp/opencode/canonical-core-audit/extracted/recreate-2/crates/smart-core/src/*.rs echo "--- store head ---" head -n 60 /tmp/opencode/canonical-core-audit/extracted/recreate-2/crates/smart-core/src/store.rs
+- **[seq 173] 2026-11-09 13:21:15 `shell`** (completed) — echo "=== LIE AUDIT: todo/unimplemented/panic/unwrap/demo stub counts per extracted zip ===" for d in /tmp/opencode/canonical-core-audit/extracted/*/; do   name=$(basename "$d")   echo "--- $name ---"   grep -r -c "todo!\|unimplemented!" "$d" --include="*.rs" 2>/dev/null | grep -v ":0" | head -n 20   echo " todo/unimplemented total:"; grep -r "todo
+- **[seq 180] 2026-11-09 13:21:18 `shell`** (completed) — echo "=== CANONICAL BASE lie scan (same) ===" grep -rn "todo!\|unimplemented!\|panic!\|\.unwrap()\|\.expect(" /home/lufuno/crates/smart-core/src /home/lufuno/crates/eiga-core/src /home/lufuno/crates/xtask/src /home/lufuno/crates/smart-ui-egui/src --include="*.rs" | head -n 120 echo "---" grep -rn "pretend\|fake\|stub\|dummy\|not yet\|not implemente
+- **[seq 187] 2026-11-09 13:21:21 `shell`** (completed) — # Deep dive: trash wiring, search truth, paced lies, mount polling, video/thumb gates, cargo gates echo "=== TRASH wiring: grep trash across UI ===" grep -rn "trash\|Trash\|restore" /home/lufuno/crates/smart-ui-egui/src --include="*.rs" | head -n 100 echo "" echo "=== OPS trash wiring: trash_empty/restore_trashed usage ===" grep -rn "trash_empty\|r
+- **[seq 194] 2026-11-09 13:21:25 `shell`** (completed) — echo "=== app.rs refresh context ===" grep -n "refresh_devices\|Devices\|poll\|pump\|request_thumb\|/thumb" /home/lufuno/crates/smart-ui-egui/src/app.rs | head -n 60 sed -n '830,920p' /home/lufuno/crates/smart-ui-egui/src/app.rs echo "" echo "=== chrome device list + mount UI ===" grep -n "mount\|unmount\|eject\|Device\|Phone\|adb\|MTP\|mtp" /home/
+- **[seq 201] 2026-11-09 13:21:29 `shell`** (completed) — echo "=== app.rs context around dev refresh + pump + new_native ===" sed -n '440,470p' /home/lufuno/crates/smart-ui-egui/src/app.rs echo "---" sed -n '1150,1200p' /home/lufuno/crates/smart-ui-egui/src/app.rs echo "--- main.rs ---" cat /home/lufuno/crates/smart-ui-egui/src/main.rs cat /home/lufuno/crates/smart-ui-egui/Cargo.toml echo "--- UI lib ini
+- **[seq 208] 2026-11-09 13:21:32 `shell`** (completed) — sed -n '860,1050p' /home/lufuno/crates/smart-ui-egui/src/modals.rs echo "=== appkit highlight pty termlive what they are ===" wc -l /home/lufuno/crates/smart-ui-egui/src/*.rs grep -l "eiga\|ffmpeg\|rodio\|audio" /home/lufuno/crates/smart-ui-egui/src/*.rs echo "--- video thumb request path ---" grep -rn "request_thumb\|Thumb\|thumb" /home/lufuno/cra
+- **[seq 215] 2026-11-09 13:21:36 `shell`** (completed) — echo "=== vite cross-checks: which zips have what vite/cargo ===" for d in prod-very-good develop recreate-2 media-latest improve cross-orig desk-bad2 wasm-refine cross-good1; do   echo "--- $d ---"   ls /tmp/opencode/canonical-core-audit/extracted/$d/ 2>/dev/null   find /tmp/opencode/canonical-core-audit/extracted/$d -maxdepth 4 -name "Cargo.toml"
+- **[seq 222] 2026-11-09 13:21:40 `shell`** (completed) — echo "=== xtask diffs ===" diff /home/lufuno/crates/xtask/src/main.rs /tmp/opencode/canonical-core-audit/extracted/prod-very-good/smart-files/crates/xtask/src/main.rs | head -n 80 diff /home/lufuno/crates/xtask/src/main.rs /tmp/opencode/canonical-core-audit/extracted/develop/crates/xtask/src/main.rs | head -n 80 echo "=== app.rs largest diff: devel
+- **[seq 229] 2026-11-09 13:21:44 `shell`** (completed) — ls /tmp/opencode/canonical-core-audit/extracted/prod-very-good/smart-files/crates/smart-ui-egui/src/ echo "---" ls /tmp/opencode/canonical-core-audit/extracted/media-latest/crates/smart-ui-egui/src/ echo "=== file lists per zip (33 rs claim? check UI file counts) ===" python3 - <<'PY' import zipfile, glob, os for z in ["/home/lufuno/smart/smart-sui
+- **[seq 236] 2026-11-09 13:21:49 `shell`** (completed) — mkdir -p /tmp/opencode/canonical-core-audit # Quick extra checks for spec accuracy echo "=== desk ops diff ===" diff /home/lufuno/crates/smart-core/src/ops.rs /tmp/opencode/canonical-core-audit/extracted/desk-bad2/smart-desktop/crates/smart-core/src/ops.rs 2>/dev/null | head -n 60 echo "=== memfs cross-orig diff ===" diff /home/lufuno/crates/smart-
+- **[seq 255] 2026-11-09 13:22:12 `write`** (completed) — {'path': '/tmp/opencode/canonical-core-audit/CORE-SPECS.md', 'content': '# Canonical Core Audit — smart-core / eiga-core / packaging / robustness\n\nNon-destructive audit of the 21 file-manager zips (last 7 days, hidden excluded) + the live canonical base at `/home/lufuno/crates/` (`smart-core` + `eiga-core` + `smart-ui-egui` + `xtask`). Originals 
+- **[seq 266] 2026-11-09 13:24:02 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite/prompt1.txt'}
+- **[seq 277] 2026-11-09 13:24:06 `read`** (completed) — {'path': '/home/lufuno/crates/smart-core/src/apps.rs'}
+- **[seq 277] 2026-11-09 13:24:06 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/content.rs'}
+- **[seq 277] 2026-11-09 13:24:06 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/shell.rs'}
+- **[seq 292] 2026-11-09 13:24:11 `shell`** (completed) — grep -n "resize_handles\|Cursor\|cursor\|StartResize\|ViewportCommand" /home/lufuno/crates/smart-ui-egui/src/*.rs echo "--- chrome resize + window_rect ---" grep -n "window_rect\|resize\|Cursor" /home/lufuno/crates/smart-ui-egui/src/app.rs | head -n 40 echo "--- reveal_in_system / xdg-open Nautilus ---" grep -n "reveal_in_system\|xdg-open\|Nautilus
+- **[seq 299] 2026-11-09 13:24:17 `shell`** (completed) — sed -n '440,540p' /home/lufuno/crates/smart-ui-egui/src/appkit.rs echo "=== lib.rs native resize ===" sed -n '140,260p' /home/lufuno/crates/smart-ui-egui/src/lib.rs echo "=== chrome resize handles region ===" sed -n '280,430p' /home/lufuno/crates/smart-ui-egui/src/chrome.rs
+- **[seq 306] 2026-11-09 13:24:21 `shell`** (completed) — echo "=== search drawer focus ===" grep -n "search\|Search\|TextEdit\|request_focus\|focus" /home/lufuno/crates/smart-ui-egui/src/overlays.rs | head -n 60 sed -n '740,880p' /home/lufuno/crates/smart-ui-egui/src/overlays.rs echo "=== content compact cols: tick overlap check ===" sed -n '620,690p' /home/lufuno/crates/smart-ui-egui/src/content.rs echo
+- **[seq 313] 2026-11-09 13:24:26 `shell`** (completed) — echo "=== settings model ===" cat /home/lufuno/crates/smart-core/src/library.rs | sed -n '1,70p' echo "=== overlays search sheet small width ===" sed -n '969,1070p' /home/lufuno/crates/smart-ui-egui/src/overlays.rs echo "=== app.rs search debounce ===" sed -n '733,760p' /home/lufuno/crates/smart-ui-egui/src/app.rs echo "=== mind: Modals m_settings 
+- **[seq 320] 2026-11-09 13:24:30 `shell`** (completed) — sed -n '1200,1345p' /home/lufuno/crates/smart-ui-egui/src/modals.rs echo "=== AI draw + composer ===" grep -n "ai-input\|draw_ai\|Ask Smart\|composer\|TextEdit" /home/lufuno/crates/smart-ui-egui/src/overlays.rs | head -n 40 sed -n '1185,1290p' /home/lufuno/crates/smart-ui-egui/src/overlays.rs echo "=== lib.rs pump debounce ===" sed -n '25,50p' /hom
+- **[seq 327] 2026-11-09 13:24:34 `shell`** (completed) — echo "=== memory: thumbs/analyze/search caches ===" grep -n "HashSet\|HashMap\|Vec<\|seen\|thumbs\|cache\|Cache" /home/lufuno/crates/smart-core/src/thumbs.rs grep -n "indexed\|IndexData\|retain" /home/lufuno/crates/smart-core/src/search.rs | head -n 20 echo "--- storage scan dealloc / rescan ---" grep -n "scan\|Scan\|Storage" /home/lufuno/crates/sm
+- **[seq 334] 2026-11-09 13:24:37 `shell`** (completed) — grep -n "dirty_at\|focus_next\|search.*sheet\|search.*query" /home/lufuno/crates/smart-ui-egui/src/*.rs | head -n 80 echo "---" grep -n "info_h\|m_info\|executable\|chmod\|AppImage\|appimage" /home/lufuno/crates/smart-ui-egui/src/modals.rs | head -n 40 sed -n '460,640p' /home/lufuno/crates/smart-ui-egui/src/modals.rs
+- **[seq 345] 2026-11-09 13:24:48 `shell`** (completed) — sed -n '1195,1260p' /home/lufuno/crates/smart-ui-egui/src/chrome.rs echo "--- storage scan state ---" sed -n '76,290p' /home/lufuno/crates/smart-ui-egui/src/storage.rs | head -n 120 echo "--- thumbs texture cache in app ---" grep -n "thumbs\|thumb_failed\|TextureHandle\|big_thumbs" /home/lufuno/crates/smart-ui-egui/src/app.rs | head -n 40
+- **[seq 352] 2026-11-09 13:24:52 `read`** (completed) — {'path': '/tmp/opencode/canonical-core-audit/CORE-SPECS.md', 'limit': 20}
+- **[seq 363] 2026-11-09 13:24:56 `shell`** (completed) — cat >> /tmp/opencode/canonical-core-audit/CORE-SPECS.md <<'EOF'  --- ---  # P0 ADDENDUM — prompt1.txt (user-reported: 11 items) — audit + fix specs  Source: `/home/lufuno/smart/smart-suite/prompt1.txt` (17 lines, 11 numbered complaints). Every item below was re-audited against the canonical base (`/home/lufuno/crates/`, byte-identical to `rust-wasm
+
+## Files mentioned
+
+- `/home/lufuno/*.zip`
+- `/home/lufuno/Cargo.lock`
+- `/home/lufuno/Cargo.toml`
+- `/home/lufuno/Cargo.toml\necho`
+- `/home/lufuno/Documents/rust-wasm-media-manager*.zip`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest.zip`
+- `/home/lufuno/Documents/rust-wasm-media-manager.zip`
+- `/home/lufuno/Downloads/*.zip`
+- `/home/lufuno/crates`
+- `/home/lufuno/crates/`
+- `/home/lufuno/crates/``
+- `/home/lufuno/crates/appkit/src/`
+- `/home/lufuno/crates/eiga-core/Cargo.toml`
+- `/home/lufuno/crates/eiga-core/src`
+- `/home/lufuno/crates/eiga-core/src/`
+- `/home/lufuno/crates/eiga-core/src/*.rs`
+- `/home/lufuno/crates/eiga-core/src/lib.rs`
+- `/home/lufuno/crates/eiga-core/src/player.rs`
+- `/home/lufuno/crates/eiga-core/src/source.rs`
+- `/home/lufuno/crates/eiga-core/src/subs.rs`
+- `/home/lufuno/crates/smart-core/Cargo.toml`
+- `/home/lufuno/crates/smart-core/Cargo.toml\ngrep`
+- `/home/lufuno/crates/smart-core/src`
+- `/home/lufuno/crates/smart-core/src/`
+- `/home/lufuno/crates/smart-core/src/*.rs`
+- `/home/lufuno/crates/smart-core/src/analyze.rs`
+- `/home/lufuno/crates/smart-core/src/apps.rs`
+- `/home/lufuno/crates/smart-core/src/apps.rs\necho`
+- `/home/lufuno/crates/smart-core/src/archive.rs`
+- `/home/lufuno/crates/smart-core/src/audio.rs`
+- `/home/lufuno/crates/smart-core/src/backend.rs`
+- `/home/lufuno/crates/smart-core/src/backend.rs\necho`
+- `/home/lufuno/crates/smart-core/src/demo.rs`
+- `/home/lufuno/crates/smart-core/src/devices.rs`
+- `/home/lufuno/crates/smart-core/src/exec.rs`
+- `/home/lufuno/crates/smart-core/src/lib.rs`
+- `/home/lufuno/crates/smart-core/src/library.rs`
+- `/home/lufuno/crates/smart-core/src/library.rs\necho`
+- `/home/lufuno/crates/smart-core/src/local.rs`
+- `/home/lufuno/crates/smart-core/src/memfs.rs`
+- `/home/lufuno/crates/smart-core/src/model.rs`
+- `/home/lufuno/crates/smart-core/src/model.rs\necho`
+- `/home/lufuno/crates/smart-core/src/model.rs\ngrep`
+- `/home/lufuno/crates/smart-core/src/ops.rs`
+- `/home/lufuno/crates/smart-core/src/registry.rs\necho`
+- `/home/lufuno/crates/smart-core/src/search.rs`
+- `/home/lufuno/crates/smart-core/src/storage*`
+- `/home/lufuno/crates/smart-core/src/thumbs.rs`
+- `/home/lufuno/crates/smart-core/src/thumbs.rs\ngrep`
+- `/home/lufuno/crates/smart-core/src/tools.rs\necho`
+- `/home/lufuno/crates/smart-core/src/vfs.rs`
+- `/home/lufuno/crates/smart-core/src/…``
+- `/home/lufuno/crates/smart-ui-egui/Cargo.toml\necho`
+- `/home/lufuno/crates/smart-ui-egui/src`
+- `/home/lufuno/crates/smart-ui-egui/src/`
+- `/home/lufuno/crates/smart-ui-egui/src/*.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/*.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/*.rs\ngrep`
+- `/home/lufuno/crates/smart-ui-egui/src/app.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/app.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/appkit.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/chrome.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/chrome.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/content.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/content.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/lib.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/lib.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/main.rs\ncat`
+- `/home/lufuno/crates/smart-ui-egui/src/modals.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/modals.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/overlays.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/overlays.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/shell.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/storage.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/video.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/video.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/video.rs\nhead`
+- `/home/lufuno/crates/xtask`
+- `/home/lufuno/crates/xtask/src`
+- `/home/lufuno/crates/xtask/src/main.rs`
+- `/home/lufuno/crates/xtask/src/main.rs\necho`
+- `/home/lufuno/crates``
+- `/home/lufuno/package.json`
+- `/home/lufuno/scripts`
+- `/home/lufuno/smart`
+- `/home/lufuno/smart/smart-suite/apps/`
+- `/home/lufuno/smart/smart-suite/apps/build-production-rust-file-manager*.zip`
+- `/home/lufuno/smart/smart-suite/apps/build-production-rust-file-manager-2-very-good.zip`
+- `/home/lufuno/smart/smart-suite/apps/develop-rust-wasm-file-manager.zip`
+- `/home/lufuno/smart/smart-suite/prompt1.txt`
+- `/home/lufuno/smart/smart-suite/prompt1.txt``
+- `/home/lufuno/vite.config.ts\ncat`
+- `/home/lufuno/work/BIGBOY/*.zip`
+- `/home/lufuno/work/BIGBOY/build-cross-platform-rust-file-manager*.zip`
+- `/home/lufuno/work/BIGBOY/build-cross-platform-rust-file-manager-good1.zip`
+- `/home/lufuno/work/BIGBOY/build-cross-platform-rust-file-manager.zip`
+- `/home/lufuno/work/BIGBOY/improve-app-consistency-and-completeness*.zip`
+- `/home/lufuno/work/BIGBOY/improve-app-consistency-and-completeness.zip`
+- `/home/lufuno/work/BIGBOY/recreate-file-manager-in-rust*.zip`
+- `/home/lufuno/work/BIGBOY/recreate-file-manager-in-rust-2.zip`
+- `/home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment*.zip`
+- `/home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad2.zip`
+- `/home/lufuno/work/BIGBOY/rust-wasm-ui-refinements*.zip`
+- `/home/lufuno/work/BIGBOY/rust-wasm-ui-refinements.zip`

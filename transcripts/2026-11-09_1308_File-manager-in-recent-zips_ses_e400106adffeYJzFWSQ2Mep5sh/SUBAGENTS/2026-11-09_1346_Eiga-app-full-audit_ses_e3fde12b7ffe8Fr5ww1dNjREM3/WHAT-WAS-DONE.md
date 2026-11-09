@@ -1,0 +1,143 @@
+# What was done — Eiga app full audit
+
+Session `ses_e3fde12b7ffe8Fr5ww1dNjREM3` | messages 31 | tools {'read': 9, 'shell': 25, 'write': 1}
+
+## Tool log
+
+- **[seq 5] 2026-11-09 13:46:51 `read`** (completed) — {'path': '/home/lufuno'}
+- **[seq 5] 2026-11-09 13:46:51 `shell`** (completed) — ls -R /home/lufuno/Documents 2>&1 | head -n 500; echo ---; ls -lh /home/lufuno/Documents/*.zip 2>&1; echo ---; ls -lh /home/lufuno/smart/smart-suite-official/specs/ 2>&1; echo ---; ls -R /tmp/opencode 2>&1 | head -n 300
+- **[seq 5] 2026-11-09 13:46:51 `shell`** (completed) — find /home/lufuno -maxdepth 4 -type f -mtime -7 -not -path "*/.*" 2>/dev/null | head -n 400; echo ===COUNT===; find /home/lufuno -maxdepth 4 -type f -mtime -7 -not -path "*/.*" 2>/dev/null | wc -l
+- **[seq 24] 2026-11-09 13:46:54 `shell`** (completed) — ls -lh /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/ 2>&1; echo ---; ls -lh /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/ 2>&1; echo ---; ls -lh /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/ 2>&1; echo ---; ls -lh /home/lufuno/Documents/rust-wasm-media-ma
+- **[seq 33] 2026-11-09 13:46:58 `shell`** (completed) — ls -lh /home/lufuno/smart/smart-suite-official/specs/ /home/lufuno/smart/smart-suite-official/audits/ 2>&1 cat /home/lufuno/Documents/rust-wasm-media-manager-latest/Cargo.toml 2>&1 echo ===; cat /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/Cargo.toml 2>&1; echo ===; cat /home/lufuno/Documents/rust-wasm-media-manager-latest
+- **[seq 40] 2026-11-09 13:47:00 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/lib.rs'}
+- **[seq 40] 2026-11-09 13:47:00 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/player.rs'}
+- **[seq 40] 2026-11-09 13:47:00 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/source.rs'}
+- **[seq 40] 2026-11-09 13:47:00 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/subs.rs'}
+- **[seq 59] 2026-11-09 13:47:01 `shell`** (completed) — ls -lh /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/highlight.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/app.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/sr
+- **[seq 66] 2026-11-09 13:47:04 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs'}
+- **[seq 73] 2026-11-09 13:47:06 `shell`** (completed) — wc -l /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/app.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/chrome.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/mo
+- **[seq 80] 2026-11-09 13:47:09 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs', 'offset': 1074}
+- **[seq 80] 2026-11-09 13:47:09 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/thumbs.rs'}
+- **[seq 80] 2026-11-09 13:47:09 `read`** (completed) — {'path': '/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/analyze.rs'}
+- **[seq 95] 2026-11-09 13:47:12 `shell`** (completed) — ls -R /tmp/opencode/canonical-eiga-audit 2>&1 ls -lh /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/*.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/*.rs 2>&1 echo "=== highlight head ===" head -n 120 /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/highli
+- **[seq 106] 2026-11-09 13:47:17 `shell`** (completed) — cat /home/lufuno/smart/smart-suite-official/specs/CANONICAL-SPECS.md 2>&1 | head -n 200 echo ===CORE TOC=== head -n 150 /tmp/opencode/canonical-core-audit/CORE-SPECS.md 2>&1 echo ===UX=== head -n 150 /tmp/opencode/canonical-ux-audit/UX-SPECS.md 2>&1 || head -n 150 /home/lufuno/smart/smart-suite-official/audits/UX-SPECS.md 2>&1 | head -n 150 ls /tmp
+- **[seq 113] 2026-11-09 13:47:20 `shell`** (completed) — ls /home/lufuno/smart/smart-protocol-official/schema/ | tr '\n' ' '; echo cat /home/lufuno/smart/smart-protocol-official/schema/media.capnp 2>&1 | head -n 400 echo "=== VIDEO? ===" ls /home/lufuno/smart/smart-protocol-official/schema/ | grep -i -E "video|media|audio"  grep -rn "domain-media\|domain-video\|smart-protocol-rs" /home/lufuno/smart/ 2>&1
+- **[seq 120] 2026-11-09 13:48:07 `shell`** (completed) — cat /home/lufuno/smart/smart-protocol-official/schema/audio.capnp 2>&1 | head -n 250 echo "=== files.capnp ===" head -n 300 /home/lufuno/smart/smart-protocol-official/schema/files.capnp 2>&1 echo "=== notification ===" head -n 150 /home/lufuno/smart/smart-protocol-official/schema/notification.capnp 2>&1
+- **[seq 127] 2026-11-09 13:48:10 `shell`** (completed) — ls /home/lufuno/smart/smart-protocol-rs/src/ 2>&1 grep -rn "domain-media\|domain-video\|Media\|Video" /home/lufuno/smart/smart-protocol-rs/src/lib.rs 2>&1 | head -n 100 cat /home/lufuno/smart/smart-protocol-rs/src/lib.rs 2>&1 | head -n 200 echo ===; ls /home/lufuno/Documents/rust-wasm-media-manager-latest/tools/ /home/lufuno/Documents/rust-wasm-med
+- **[seq 134] 2026-11-09 13:48:14 `shell`** (completed) — grep -rn "appimage\|AppImage\|build.*appimage" /home/lufuno/Documents/rust-wasm-media-manager-latest/ 2>&1 | head -n 60 ls /home/lufuno/Documents/rust-wasm-media-manager-latest/scripts/ /home/lufuno/Documents/rust-wasm-media-manager-latest/tools/ 2>&1 ls /home/lufuno/smart/smart-suite-official/ 2>&1 cat /home/lufuno/Documents/rust-wasm-media-manage
+- **[seq 141] 2026-11-09 13:48:19 `shell`** (completed) — echo ===refine check=== ls /home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad.zip /home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad2.zip 2>&1 | head -n 20 unzip -l /home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad2.zip 2>&1 | grep -i "eiga\|video\|media" | head -n 60 unzip -l /home/lufuno/Documents/
+- **[seq 148] 2026-11-09 13:48:23 `shell`** (completed) — cat /tmp/opencode/canonical-core-audit/extracted/prod-very-good/scripts/build-appimage.sh 2>&1 echo ===; cat /tmp/opencode/canonical-core-audit/extracted/develop/packaging/* 2>&1 | head -n 100; ls -R /tmp/opencode/canonical-core-audit/extracted/develop/packaging/ 2>&1 echo ===recent eiga check=== find /home/lufuno -type f -name "*.rs" -not -path "*
+- **[seq 155] 2026-11-09 13:48:28 `shell`** (completed) — ls /home/lufuno/smart/smartui-workspace/ 2>&1 | head -n 40 ls /home/lufuno/smart/smartui-workspace/smartui-media/ /home/lufuno/smart/smartui-workspace/examples/media-cinema/ 2>&1 echo ===; cat /home/lufuno/smart/smartui-workspace/smartui-media/src/engine/session.rs 2>&1 | head -n 150 echo ===ffmpeg_cli===; cat /home/lufuno/smart/smartui-workspace/s
+- **[seq 162] 2026-11-09 13:48:32 `shell`** (completed) — ls /home/lufuno/smart/smartui-workspace/smartui-media/src/ 2>&1 wc -l /home/lufuno/smart/smartui-workspace/smartui-media/src/**/*.rs /home/lufuno/smart/smartui-workspace/smartui-media/src/*.rs 2>&1 | head -n 60 cat /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/backend.rs 2>&1 | grep -n "thumb\|audio\|Audio\|request_thu
+- **[seq 169] 2026-11-09 13:48:36 `shell`** (completed) — unzip -l /home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad2.zip 2>&1 | grep -E "eiga|video|smartui-media|media-cinema" | head -n 80 echo ===desk structure=== unzip -l /home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad2.zip 2>&1 | head -n 120 echo ===eiga_core Cargo deps=== cat /home/lufuno/Documents/rust-wasm-media-
+- **[seq 180] 2026-11-09 13:48:42 `shell`** (completed) — grep -n "audio_delay" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/player.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs 2>&1 echo "=== does audio_delay actually shift audio or just display? ===" grep -n -A3 -B3 "AudioDelay" /home/lufuno/Documents/rust-wasm-media-manager-late
+- **[seq 187] 2026-11-09 13:48:47 `shell`** (completed) — grep -n "todo!\|unimplemented\|panic!\|placeholder\|FIXME\|HACK" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/*.rs /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs 2>&1 | head -n 80 echo "=== demo honesty ===" grep -n "demo\|TestCard\|test card\|web preview\|Web preview" /home/luf
+- **[seq 194] 2026-11-09 13:48:54 `shell`** (completed) — grep -n "thumbs\|thumb" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs | head -n 30 echo "=== prod thumbs video_thumb ===" cat /tmp/opencode/canonical-core-audit/extracted/prod-very-good/smart-files/crates/smart-core/src/thumbs.rs 2>&1 | head -n 200 echo "=== eiga thumbs fallback ===" grep -n "Kind::Video\|V
+- **[seq 201] 2026-11-09 13:48:59 `shell`** (completed) — echo "=== video ext coverage ===" grep -n "VIDEO_EXTS\|mp4\|mkv" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs | head -n 30 echo "=== model Kind::Video exts ===" grep -n -A30 "fn from_ext\|Kind::Video" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/model.rs | head -n 100 echo "=
+- **[seq 208] 2026-11-09 13:49:53 `shell`** (completed) — grep -n "debounce\|throttle\|cache" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/source.rs | head -n 40 echo ===FfmpegSource reconnect/stall handling=== grep -n -A8 -B2 "exhausted\|pending" /home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/source.rs | head -n 120 echo ===AudioPipe chunk size===
+- **[seq 215] 2026-11-09 13:50:14 `shell`** (completed) — head -n 120 /home/lufuno/smart/smartui-workspace/smartui-media/src/lib.rs 2>&1 echo ===; head -n 100 /home/lufuno/smart/smartui-workspace/smartui-media/src/spec.rs 2>&1 echo ===; head -n 80 /home/lufuno/smart/smartui-workspace/smartui-media/src/engine/mod.rs 2>&1 echo ===protocol mapping check=== grep -rn "Media\|media" /home/lufuno/smart/smartui-w
+- **[seq 226] 2026-11-09 13:50:28 `shell`** (completed) — mkdir -p /tmp/opencode/canonical-eiga-audit /home/lufuno/smart/smart-suite-official/specs ls -lh /home/lufuno/smart/smart-suite-official/specs/ cat /home/lufuno/smart/smart-protocol-official/schema/clipboard.capnp | grep -E "setContent|convert" | head -n 10 cat /home/lufuno/smart/smart-protocol-official/DESIGN_PRINCIPLES.md 2>&1 | head -n 60
+- **[seq 241] 2026-11-09 13:51:10 `write`** (completed) — {'path': '/tmp/opencode/canonical-eiga-audit/EIGA-SPECS.md', 'content': '# EIGA UNKNOWN UNKNOWNS — Deep Audit v2 (Protocol-First, Honest Player)\n\n**Status:** `UNKNOWN UNKNOWNS AUDITED — DO NOT SHIP PLAYER WITHOUT §3 L–items + §6 Performance + §9 Acceptance`\n**Date:** 2026-11-09\n**Source roots (last 7 days, hidden excluded, non-destructive):**\n
+- **[seq 248] 2026-11-09 13:53:32 `shell`** (completed) — ls -lh /tmp/opencode/canonical-eiga-audit/EIGA-SPECS.md wc -l /tmp/opencode/canonical-eiga-audit/EIGA-SPECS.md cp /tmp/opencode/canonical-eiga-audit/EIGA-SPECS.md /home/lufuno/smart/smart-suite-official/specs/EIGA-SPECS.md ls -lh /home/lufuno/smart/smart-suite-official/specs/ diff /tmp/opencode/canonical-eiga-audit/EIGA-SPECS.md /home/lufuno/smart/
+
+## Files mentioned
+
+- `/home/lufuno/Documents`
+- `/home/lufuno/Documents/*.zip`
+- `/home/lufuno/Documents/rust-wasm-media-manager*.zip\ndiff`
+- `/home/lufuno/Documents/rust-wasm-media-manager-2.zip`
+- `/home/lufuno/Documents/rust-wasm-media-manager-2.zip``
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest.zip`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest.zip``
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/Cargo.lock`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/Cargo.toml`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/README.md`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/Cargo.toml`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/Cargo.toml\necho`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/*.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/lib.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/player.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/source.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/eiga-core/src/subs.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/Cargo.toml`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/*.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/analyze.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/audio.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/backend.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/devices.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/library.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/model.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-core/src/thumbs.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/Cargo.toml`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/*.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/app.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/chrome.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/content.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/highlight.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/highlight.rs\necho`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/lib.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/modals.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/modals.rs\ngrep`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/shell.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/smart-ui-egui/src/video.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/crates/xtask/src/main.rs`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/scripts/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/tools/`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/tools/build_web.sh`
+- `/home/lufuno/Documents/rust-wasm-media-manager-latest/web/`
+- `/home/lufuno/Documents/rust-wasm-media-manager.zip`
+- `/home/lufuno/Documents/rust-wasm-media-manager.zip``
+- `/home/lufuno/crates/`
+- `/home/lufuno/crates/*``
+- `/home/lufuno/crates/eiga-core`
+- `/home/lufuno/crates/smart-core`
+- `/home/lufuno/smart/`
+- `/home/lufuno/smart/smart-protocol-official/`
+- `/home/lufuno/smart/smart-protocol-official/DESIGN_PRINCIPLES.md`
+- `/home/lufuno/smart/smart-protocol-official/gen/`
+- `/home/lufuno/smart/smart-protocol-official/schema/`
+- `/home/lufuno/smart/smart-protocol-official/schema/*.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/*.capnp``
+- `/home/lufuno/smart/smart-protocol-official/schema/audio.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/clipboard.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/files.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/media.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/notification.capnp`
+- `/home/lufuno/smart/smart-protocol-rs/`
+- `/home/lufuno/smart/smart-protocol-rs/Cargo.toml`
+- `/home/lufuno/smart/smart-protocol-rs/``
+- `/home/lufuno/smart/smart-protocol-rs/src/`
+- `/home/lufuno/smart/smart-protocol-rs/src/lib.rs`
+- `/home/lufuno/smart/smart-suite-official/`
+- `/home/lufuno/smart/smart-suite-official/audits/`
+- `/home/lufuno/smart/smart-suite-official/audits/UX-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/`
+- `/home/lufuno/smart/smart-suite-official/specs/CANONICAL-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/EIGA-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/EIGA-SPECS.md\nls`
+- `/home/lufuno/smart/smart-suite-official/specs/\ncat`
+- `/home/lufuno/smart/smart-suite-official/specs/\ndiff`
+- `/home/lufuno/smart/smart-suite-official/specs\nls`
+- `/home/lufuno/smart/smartui-workspace/`
+- `/home/lufuno/smart/smartui-workspace/examples/media-cinema/`
+- `/home/lufuno/smart/smartui-workspace/examples/media-cinema/src/main.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/``
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/**/*.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/*.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/engine/ffmpeg_cli.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/engine/mod.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/engine/session.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/lib.rs`
+- `/home/lufuno/smart/smartui-workspace/smartui-media/src/spec.rs`
+- `/home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad.zip`
+- `/home/lufuno/work/BIGBOY/refine-futuristic-desktop-environment-bad2.zip`

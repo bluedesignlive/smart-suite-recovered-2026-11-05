@@ -1,0 +1,108 @@
+# What was done — Terminal app real audit
+
+Session `ses_e3fce7e1dffeeR37Pyi3OpRWB6` | messages 25 | tools {'read': 30, 'shell': 13, 'websearch': 1, 'write': 1}
+
+## Tool log
+
+- **[seq 5] 2026-11-09 14:03:52 `read`** (completed) — {'path': '/home/lufuno/smart'}
+- **[seq 16] 2026-11-09 14:03:54 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official'}
+- **[seq 16] 2026-11-09 14:03:54 `read`** (error) — {'path': '/home/lufuno/smart/smart-ui-egui'}
+- **[seq 16] 2026-11-09 14:03:54 `shell`** (completed) — find /home/lufuno/smart -type f -name "*.rs" | xargs grep -l "terminal\|pty\|shell" 2>/dev/null | head -20; echo "---"; ls -R /home/lufuno/smart/smart-desktop 2>&1 | head -n 100; echo "---"; ls /home/lufuno/smart/smart-protocol-rs/ 2>&1; echo "---"; ls /home/lufuno/smart/smart-protocol-official/schema/ 2>&1 | head -n 50
+- **[seq 33] 2026-11-09 14:03:57 `shell`** (completed) — find /home/lufuno/smart -maxdepth 3 -type d -name "*terminal*" -o -name "*desktop*" -o -name "*egui*" 2>/dev/null | head -30 ls /home/lufuno/smart/smart-protocol-rs/src/ 2>&1 ls /home/lufuno/smart/smart-protocol-official/ 2>&1 ls /home/lufuno/smart/smart-suite-official/specs/ 2>&1 ls /home/lufuno/smart/smart-suite-official/audits/ 2>&1 find /home/l
+- **[seq 40] 2026-11-09 14:03:59 `shell`** (completed) — ls -R /home/lufuno/smart/smart-os/apps/terminal 2>&1 | head -n 80 echo "===" ls /home/lufuno/crates/smart-ui-egui/src/ 2>&1 echo "===" ls /home/lufuno/smart/smart-protocol-rs/src/ 2>&1 echo "===" ls /home/lufuno/smart/smart-protocol-official/schema/ 2>&1 | grep -E "console|process|clipboard|ai|terminal"  echo "===" cat /home/lufuno/smart/smart-prot
+- **[seq 47] 2026-11-09 14:04:02 `read`** (completed) — {'path': '/home/lufuno/smart/smart-protocol-rs/Cargo.toml'}
+- **[seq 47] 2026-11-09 14:04:02 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/Cargo.toml'}
+- **[seq 47] 2026-11-09 14:04:02 `shell`** (completed) — wc -l /home/lufuno/crates/smart-ui-egui/src/*.rs echo "===" ls /home/lufuno/smart/smart-os/apps/terminal/ -la 2>&1 echo "===" wc -l /home/lufuno/smart/smart-os/apps/terminal/* 2>&1 echo "===" stat -c '%y %n' /home/lufuno/crates/smart-ui-egui/src/terminal.rs /home/lufuno/crates/smart-ui-egui/src/shell.rs /home/lufuno/crates/smart-ui-egui/src/pty.rs 
+- **[seq 62] 2026-11-09 14:04:04 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/terminal.rs'}
+- **[seq 62] 2026-11-09 14:04:04 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/pty.rs'}
+- **[seq 62] 2026-11-09 14:04:04 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/shell.rs'}
+- **[seq 62] 2026-11-09 14:04:04 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/termlive.rs'}
+- **[seq 62] 2026-11-09 14:04:04 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/appkit.rs'}
+- **[seq 87] 2026-11-09 14:04:06 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/terminal.rs', 'offset': 1103}
+- **[seq 98] 2026-11-09 14:04:10 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/terminal.rs', 'offset': 2056}
+- **[seq 98] 2026-11-09 14:04:10 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/theme.rs'}
+- **[seq 98] 2026-11-09 14:04:10 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/paint.rs'}
+- **[seq 98] 2026-11-09 14:04:10 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/highlight.rs'}
+- **[seq 117] 2026-11-09 14:04:18 `read`** (completed) — {'path': '/home/lufuno/smart/smart-protocol-official/schema/console.capnp'}
+- **[seq 117] 2026-11-09 14:04:18 `read`** (completed) — {'path': '/home/lufuno/smart/smart-protocol-official/schema/ai.capnp'}
+- **[seq 117] 2026-11-09 14:04:18 `read`** (completed) — {'path': '/home/lufuno/smart/smart-protocol-official/schema/process.capnp'}
+- **[seq 117] 2026-11-09 14:04:18 `read`** (completed) — {'path': '/home/lufuno/smart/smart-protocol-official/schema/clipboard.capnp'}
+- **[seq 138] 2026-11-09 14:04:30 `read`** (error) — {'path': '/home/lufuno/smart/smart-suite-official/specs/CORE-SPECS.md'}
+- **[seq 138] 2026-11-09 14:04:30 `read`** (error) — {'path': '/home/lufuno/smart/smart-suite-official/specs/UX-SPECS.md'}
+- **[seq 138] 2026-11-09 14:04:30 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/chrome.rs'}
+- **[seq 155] 2026-11-09 14:04:40 `shell`** (completed) — ls /tmp/opencode/canonical-terminal-audit/ 2>&1; mkdir -p /tmp/opencode/canonical-terminal-audit ls /home/lufuno/smart/smart-suite-official/specs/ 2>&1 ls /home/lufuno/smart/smart-suite-official/audits/ 2>&1 cat /home/lufuno/smart/smart-protocol-official/schema/shell.capnp 2>&1 | head -n 100 cat /home/lufuno/smart/smart-protocol-rs/src/lib.rs 2>&1 
+- **[seq 163] 2026-11-09 14:04:45 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/specs/CANONICAL-SPECS.md'}
+- **[seq 163] 2026-11-09 14:04:45 `shell`** (completed) — grep -rn "domain-console\|domain-process\|domain-clipboard\|domain-ai\|ai.capnp\|console.capnp" /home/lufuno/crates/smart-ui-egui/src/ 2>&1 | head -n 30 echo "===STORAGE==="  grep -n "storage" /home/lufuno/crates/smart-ui-egui/src/storage.rs | head -n 60 echo "===COPYFX==="  cat /home/lufuno/crates/smart-ui-egui/src/copyfx.rs 2>&1 | head -n 80 echo
+- **[seq 175] 2026-11-09 14:04:48 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/storage.rs'}
+- **[seq 175] 2026-11-09 14:04:48 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/overlays.rs'}
+- **[seq 175] 2026-11-09 14:04:48 `shell`** (completed) — grep -n "caret\|cursor\|spring_to\|spring_out\|Topbar\|appbar\|Ask Smart\|Act::Ask" /home/lufuno/crates/smart-ui-egui/src/*.rs | head -n 120 echo "===" grep -n "todo!\|panic!\|unwrap()\|unimplemented!" /home/lufuno/crates/smart-ui-egui/src/terminal.rs /home/lufuno/crates/smart-ui-egui/src/pty.rs /home/lufuno/crates/smart-ui-egui/src/termlive.rs /ho
+- **[seq 194] 2026-11-09 14:04:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/app.rs', 'offset': 400, 'limit': 60}
+- **[seq 194] 2026-11-09 14:04:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/overlays.rs', 'offset': 1065}
+- **[seq 194] 2026-11-09 14:04:54 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/chrome.rs', 'offset': 990}
+- **[seq 209] 2026-11-09 14:04:59 `websearch`** (completed) — {'query': 'Rust portable-pty vt100 alacritty-terminal 2026 crates text rendering performance'}
+- **[seq 209] 2026-11-09 14:04:59 `shell`** (completed) — grep -n "Act::Ask\|ai_send\|Mod AI\|struct AI\|ai.open\|ai.input" /home/lufuno/crates/smart-ui-egui/src/app.rs | head -n 60 echo "===" grep -n "Ask Smart\|stars-minimalistic\|AI.*button\|icon_button.*ask\|adaptive_button.*ask" /home/lufuno/crates/smart-ui-egui/src/*.rs | head -n 50 echo "===" grep -n "search.*icon\|sort.*icon\|magnifer\|sort-vertic
+- **[seq 222] 2026-11-09 14:05:05 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/app.rs', 'offset': 1657}
+- **[seq 222] 2026-11-09 14:05:05 `read`** (completed) — {'path': '/home/lufuno/crates/smart-ui-egui/src/lib.rs'}
+- **[seq 222] 2026-11-09 14:05:05 `shell`** (completed) — grep -n "Ctrl.*K\|Key::K\|palette" /home/lufuno/crates/smart-ui-egui/src/*.rs | head -n 40 echo "===" grep -n "trash.*appbar\|Empty Trash\|Trash.*clean" /home/lufuno/crates/smart-ui-egui/src/*.rs | head -n 20 echo "===" grep -n "XTERM\|TERM\|COLORTERM\|portable-pty\|vt100\|alacritty" /home/lufuno/crates/smart-ui-egui/Cargo.toml /home/lufuno/crates/
+- **[seq 237] 2026-11-09 14:05:09 `shell`** (completed) — grep -rn "TextEdit\|singleline\|multiline\|text_cursor\|TextCursor\|caret\|visuals.text_cursor" /home/lufuno/crates/smart-ui-egui/src/*.rs | head -n 60 echo "=== photos search ===" grep -n "TextEdit\|search\|rename\|caption" /home/lufuno/crates/smart-ui-egui/src/photos.rs | head -n 40 echo "=== video search ===" grep -n "TextEdit\|search\|rename\|s
+- **[seq 246] 2026-11-09 14:05:16 `shell`** (completed) — mkdir -p /tmp/opencode/canonical-terminal-audit /home/lufuno/smart/smart-suite-official/specs cat /home/lufuno/crates/smart-ui-egui/src/icons.rs 2>&1 echo "---" grep -n "adaptive_button\|icon_button\|label_button\|segment\|vscroll\|switch\|slider" /home/lufuno/crates/smart-ui-egui/src/appkit.rs /home/lufuno/crates/smart-ui-egui/src/chrome.rs | head
+- **[seq 255] 2026-11-09 14:05:23 `write`** (completed) — {'path': '/tmp/opencode/canonical-terminal-audit/TERMINAL-SPECS.md', 'content': '# Terminal App — Canonical Spec (Protocol-First, Backends Disposable, Unmatched Shell)\n\n**Status:** Ready for build. Merges `/tmp/opencode/canonical-terminal-audit/` audit of\n`/home/lufuno/crates/smart-ui-egui/src/{terminal.rs 2401,pty.rs 393,shell.rs 845,termlive.r
+- **[seq 264] 2026-11-09 14:07:52 `shell`** (completed) — wc -l /tmp/opencode/canonical-terminal-audit/TERMINAL-SPECS.md cp /tmp/opencode/canonical-terminal-audit/TERMINAL-SPECS.md /home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md wc -l /home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md ls -lh /home/lufuno/smart/smart-suite-official/specs/ diff -q /tmp/opencode/canonical-termina
+- **[seq 271] 2026-11-09 14:07:58 `shell`** (completed) — grep -n "^#" /home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md | head -n 50 echo "===" grep -c "L-\|M-\|N-\|T-" /home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md
+
+## Files mentioned
+
+- `/home/lufuno/crates/smart-core/src/`
+- `/home/lufuno/crates/smart-ui-egui/Cargo.toml`
+- `/home/lufuno/crates/smart-ui-egui/src/`
+- `/home/lufuno/crates/smart-ui-egui/src/*.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/*.rs\necho`
+- `/home/lufuno/crates/smart-ui-egui/src/`.\n\n|`
+- `/home/lufuno/crates/smart-ui-egui/src/app.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/appkit.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/chrome.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/content.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/copyfx.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/highlight.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/icons.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/lib.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/modals.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/overlays.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/paint.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/photos.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/pty.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/shell.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/storage.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/terminal.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/termlive.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/theme.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/video.rs`
+- `/home/lufuno/crates/smart-ui-egui/src/{terminal.rs`
+- `/home/lufuno/smart`
+- `/home/lufuno/smart/smart-desktop`
+- `/home/lufuno/smart/smart-os/apps/terminal`
+- `/home/lufuno/smart/smart-os/apps/terminal/`
+- `/home/lufuno/smart/smart-os/apps/terminal/*`
+- `/home/lufuno/smart/smart-protocol-official/`
+- `/home/lufuno/smart/smart-protocol-official/schema/`
+- `/home/lufuno/smart/smart-protocol-official/schema/ai.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/clipboard.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/console.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/process.capnp`
+- `/home/lufuno/smart/smart-protocol-official/schema/shell.capnp`
+- `/home/lufuno/smart/smart-protocol-rs/`
+- `/home/lufuno/smart/smart-protocol-rs/Cargo.toml`
+- `/home/lufuno/smart/smart-protocol-rs/src/`
+- `/home/lufuno/smart/smart-protocol-rs/src/lib.rs`
+- `/home/lufuno/smart/smart-suite-official`
+- `/home/lufuno/smart/smart-suite-official/audits/`
+- `/home/lufuno/smart/smart-suite-official/specs/`
+- `/home/lufuno/smart/smart-suite-official/specs/CANONICAL-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/CORE-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md\nls`
+- `/home/lufuno/smart/smart-suite-official/specs/TERMINAL-SPECS.md\nwc`
+- `/home/lufuno/smart/smart-suite-official/specs/UX-SPECS.md`
+- `/home/lufuno/smart/smart-suite-official/specs/\ndiff`
+- `/home/lufuno/smart/smart-suite-official/specs\ncat`
+- `/home/lufuno/smart/smart-ui-egui`

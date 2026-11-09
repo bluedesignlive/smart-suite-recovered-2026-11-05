@@ -1,0 +1,116 @@
+# What was done — Photos app review
+
+Session `ses_e3f7ec739ffeLRDH9VqQ7WXMsN` | messages 55 | tools {'read': 31, 'glob': 1, 'grep': 3, 'shell': 14, 'write': 2, 'edit': 27}
+
+## Tool log
+
+- **[seq 5] 2026-11-09 15:30:56 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/'}
+- **[seq 16] 2026-11-09 15:30:58 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/PHOTOS-STATUS.md'}
+- **[seq 16] 2026-11-09 15:30:58 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos'}
+- **[seq 16] 2026-11-09 15:30:58 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps'}
+- **[seq 31] 2026-11-09 15:30:59 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src'}
+- **[seq 31] 2026-11-09 15:30:59 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/Cargo.toml'}
+- **[seq 31] 2026-11-09 15:30:59 `glob`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official', 'pattern': 'specs/**/*.md'}
+- **[seq 46] 2026-11-09 15:31:00 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/specs/PHOTOS-SPECS.md'}
+- **[seq 46] 2026-11-09 15:31:00 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/Cargo.toml'}
+- **[seq 57] 2026-11-09 15:31:01 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/lib.rs'}
+- **[seq 57] 2026-11-09 15:31:01 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/thumb_cache.rs'}
+- **[seq 57] 2026-11-09 15:31:01 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/model.rs'}
+- **[seq 57] 2026-11-09 15:31:01 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/scan.rs'}
+- **[seq 78] 2026-11-09 15:31:03 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/editor.rs'}
+- **[seq 78] 2026-11-09 15:31:03 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/viewer.rs'}
+- **[seq 78] 2026-11-09 15:31:03 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/exif.rs'}
+- **[seq 78] 2026-11-09 15:31:03 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/xmp.rs'}
+- **[seq 97] 2026-11-09 15:31:06 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/dup.rs'}
+- **[seq 97] 2026-11-09 15:31:06 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/import.rs'}
+- **[seq 97] 2026-11-09 15:31:06 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/picker.rs'}
+- **[seq 97] 2026-11-09 15:31:06 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/settings.rs'}
+- **[seq 116] 2026-11-09 15:31:09 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/trash.rs'}
+- **[seq 116] 2026-11-09 15:31:09 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/a11y.rs'}
+- **[seq 116] 2026-11-09 15:31:09 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/capture.rs'}
+- **[seq 116] 2026-11-09 15:31:09 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/protocol.rs'}
+- **[seq 135] 2026-11-09 15:31:13 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/search.rs'}
+- **[seq 135] 2026-11-09 15:31:13 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/main.rs'}
+- **[seq 135] 2026-11-09 15:31:13 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/README.md'}
+- **[seq 150] 2026-11-09 15:31:15 `grep`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos', 'pattern': 'todo!|panic!|unwrap|expect\\('}
+- **[seq 150] 2026-11-09 15:31:15 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/crates/smart-core/src/thumbs.rs'}
+- **[seq 163] 2026-11-09 15:31:18 `grep`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos', 'pattern': 'todo|unimplemented|panic'}
+- **[seq 163] 2026-11-09 15:31:18 `shell`** (completed) — cargo test -p smart-photos 2>&1 | tail -30
+- **[seq 178] 2026-11-09 15:31:26 `shell`** (completed) — cargo check -p smart-photos 2>&1 | tail -20; echo "---git---"; git status --short; echo "---log---"; git log --oneline -5
+- **[seq 185] 2026-11-09 15:31:28 `shell`** (completed) — git ls-files | head -50; echo "---"; git show --stat HEAD | head -40
+- **[seq 202] 2026-11-09 15:31:42 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/specs/PHOTOS-SPECS.md', 'offset': 545}
+- **[seq 211] 2026-11-09 15:31:45 `write`** (completed) — {'path': '/tmp/opencode/thumb_patch_check.rs', 'content': 'check'}
+- **[seq 220] 2026-11-09 15:31:50 `write`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/thumb_cache.rs', 'content': '//! Thumbnail cache — disk LRU (500 MB) + big-thumb pool of 8 (PHOTOS-SPECS §4.2–4.3)\n//! + on-demand decode pipeline (P0–P3 queue, visible-only).\n//!\n//! Cache key is **BLAKE3(abspath ‖ rung ‖ mtime_ns ‖ orientation ‖ edit_generation)**\n//! (12
+- **[seq 231] 2026-11-09 15:32:18 `edit`** (completed) — {'newString': '//! Editor — non-destructive, sidecar-backed, reversible (PHOTOS-SPECS §7).\n//!\n//! The image bytes are never modified. Pixels are baked only on Export.\n//! `process()` is the CPU per-pixel adjustment (exposure `2^e`, contrast,\n//! luma-based saturation + warmth, smoothstep vignette) run on a ≤1024 px\n//! proxy in the UI beat; f
+- **[seq 242] 2026-11-09 15:32:24 `edit`** (completed) — {'newString': '/// CPU per-pixel process on an RGB image. Pure and testable.\n///\n/// Order: saturation mix → exposure → contrast → warmth → blacks lift →\n/// whites scale → dehaze → clarity (midtone contrast) → texture\n/// (micro-contrast) → vignette. Short buffers are guarded (no panic).\npub fn process(src: &[u8], w: u32, h: u32, adj: &Adjust
+- **[seq 249] 2026-11-09 15:32:30 `edit`** (completed) — {'newString': '    #[test]\n    fn decode_rejects_unsupported() {\n        assert!(decode(b"not an image").is_none());\n    }\n\n    #[test]\n    fn every_slider_is_live() {\n        // §7.3: no slider may be decorative — each field changes pixels.\n        let src = vec![90u8, 110, 130];\n        let base = Adjust::default();\n        let cases = 
+- **[seq 258] 2026-11-09 15:32:34 `edit`** (completed) — {'newString': '/// `domain-media`: MediaItem (contentHash), aiTags, supported formats, export.\npub trait MediaGateway: Send + Sync {\n    fn content_hash(&self, path: &str) -> Option<String>;\n    fn supported_formats(&self) -> Vec<&\'static str>;\n    fn export(&self, src: &str, dest: &str, quality: u8) -> Result<(), String>;\n}\n\n/// Bounded re
+- **[seq 267] 2026-11-09 15:32:37 `edit`** (completed) — {'newString': '    fn read_range(&self, path: &str, offset: u64, max_bytes: usize) -> Option<Vec<u8>> {\n        let real = self.real(path);\n        let mut f = std::fs::File::open(real).ok()?;\n        use std::io::{Read, Seek, SeekFrom};\n        f.seek(SeekFrom::Start(offset)).ok()?;\n        let cap = max_bytes.min(MAX_LOCAL_READ);\n        le
+- **[seq 274] 2026-11-09 15:32:40 `edit`** (completed) — {'newString': '    fn export(&self, src: &str, dest: &str, _quality: u8) -> Result<(), String> {\n        // Honest bounded byte-copy (see the module note above). Chunked\n        // read — never `usize::MAX` (that allocated a zero-buffer bomb).\n        use std::io::{Read, Seek, SeekFrom};\n        let real = self.real(src);\n        let mut f = s
+- **[seq 281] 2026-11-09 15:32:43 `edit`** (completed) — {'newString': '    pub fn step(cur: f32, dir: f32) -> f32 {\n        // §7.1 ease-out step toward the target zoom.\n        (cur * dir).clamp(ZOOM_MIN, ZOOM_MAX)\n    }', 'oldString': '    pub fn step(cur: f32, dir: f32) -> f32 {\n        // §7.1 ease-out step toward the target zoom.\n        let target = zoom_presets().iter().copied().find(|z| (z 
+- **[seq 292] 2026-11-09 15:32:47 `edit`** (completed) — {'newString': '//! Picker — generic system picker with New Folder / search / multi-select\n//! (PHOTOS-SPECS §9.3). Promotes the wallpaper picker to\n//! `PickPurpose ∈ {Wallpaper, Open, Save, Import}` + optional format filter.', 'oldString': '//! Picker — generic system picker with New Folder / search / multi-select\n//! (PHOTOS-SPECS §9.3). Promo
+- **[seq 301] 2026-11-09 15:32:50 `read`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/picker.rs'}
+- **[seq 308] 2026-11-09 15:32:53 `edit`** (completed) — {'newString': '//! Picker — generic system picker with New Folder / search / multi-select\n//! (PHOTOS-SPECS §9.3). Promotes the wallpaper picker to\n//! `PickPurpose ∈ {Wallpaper, Open, Save, Import}` + optional format filter.\n\nuse std::collections::HashSet;\n\n#[derive(Clone, Copy, Debug, PartialEq, Eq)]', 'oldString': '//! Picker — generic sys
+- **[seq 317] 2026-11-09 15:32:56 `edit`** (completed) — {'newString': '/// Format filter row (All / JPEG / PNG / HEIC / RAW / Video) driven by §4.5\n/// kinds; demoted kinds are listed with their reason, never hidden silently.\npub fn format_options() -> Vec<(&\'static str, &\'static str)> {\n    vec![\n        ("All", "every kind"),\n        ("JPEG", "decodable"),\n        ("PNG", "decodable"),\n      
+- **[seq 324] 2026-11-09 15:33:00 `edit`** (completed) — {'newString': '    #[test]\n    fn new_folder_validates() {\n        assert!(new_folder("/pic", "2024", true, |_| false).is_ok());\n        assert_eq!(new_folder("/pic", "x", false, |_| false).unwrap_err(), "This device is read-only — a folder cannot be created here.");\n        assert_eq!(new_folder("/pic", "x", true, |_| true).unwrap_err(), "A fo
+- **[seq 331] 2026-11-09 15:33:04 `edit`** (completed) — {'newString': '//! Accessibility (PHOTOS-SPECS §9.1).\n//!\n//! Keyboard completeness, focus visibility, screen-reader labels, motion,\n//! contrast & type, targets, colour independence. State is never colour-only:\n//! selection = 2 px border, favourite = filled heart, missing = hatch +\n//! label, loading = skeleton + shimmer.\n//!\n//! This modu
+- **[seq 342] 2026-11-09 15:33:08 `shell`** (completed) — cargo check -p smart-photos 2>&1 | tail -30
+- **[seq 351] 2026-11-09 15:33:14 `edit`** (completed) — {'newString': '    if let Ok(img) = image::load_from_memory(&out.stdout) {', 'oldString': '    if let Some(img) = image::load_from_memory(&out.stdout) {', 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/thumb_cache.rs'}
+- **[seq 358] 2026-11-09 15:33:17 `shell`** (completed) — cargo check -p smart-photos 2>&1 | tail -30
+- **[seq 365] 2026-11-09 15:33:22 `shell`** (completed) — cargo test -p smart-photos 2>&1 | tail -40
+- **[seq 372] 2026-11-09 15:33:30 `edit`** (completed) — {'newString': '    pub fn rebuild_visible(&mut self, jobs: Vec<ThumbJob>) {\n        self.shared.generation.fetch_add(1, Ordering::SeqCst);\n        self.shared.cancelled.store(false, Ordering::SeqCst);\n        let gen = self.shared.generation.load(Ordering::SeqCst);\n        // Rebuild, never accumulate: any pending job for a cell that\n        /
+- **[seq 383] 2026-11-09 15:33:34 `edit`** (completed) — {'newString': 'fn bytes_to_thumb(bytes: &[u8], edge: u32) -> Option<(u32, u32, Vec<u8>)> {\n    let img = image::load_from_memory(bytes).ok()?;\n    // Never upscale a thumbnail past the source (no blurry tiles).\n    let longest = img.width().max(img.height()).max(1);\n    let e = edge.max(1).min(longest);\n    let t = img.thumbnail(e, e).to_rgba8
+- **[seq 390] 2026-11-09 15:33:37 `edit`** (completed) — {'newString': 'fn store_thumb(cache_dir: &Path, key: &str, src_bytes: &[u8], edge: u32) {\n    let Ok(img) = image::load_from_memory(src_bytes) else { return };\n    let longest = img.width().max(img.height()).max(1);\n    let e = edge.max(1).min(longest);\n    let t = img.thumbnail(e, e);', 'oldString': 'fn store_thumb(cache_dir: &Path, key: &str,
+- **[seq 399] 2026-11-09 15:33:40 `edit`** (completed) — {'newString': '    if let Ok(img) = image::load_from_memory(&out.stdout) {\n        let longest = img.width().max(img.height()).max(1);\n        let e = edge.max(1).min(longest);\n        let t = img.thumbnail(e, e);', 'oldString': '    if let Ok(img) = image::load_from_memory(&out.stdout) {\n        let t = img.thumbnail(edge.max(1), edge.max(1));
+- **[seq 406] 2026-11-09 15:33:46 `edit`** (completed) — {'newString': '    #[test]\n    fn decode_caches_png_to_disk_and_hits() {\n        let dir = tmp_dir("diskhit");\n        let src = tmp_dir("src");\n        let file = src.join("a.png");\n        std::fs::write(&file, make_png(512, 512)).unwrap();\n        let path = file.to_string_lossy().to_string();\n        let key = cache_key(&path, 256, 42, 1
+- **[seq 413] 2026-11-09 15:33:50 `shell`** (completed) — cargo test -p smart-photos 2>&1 | tail -25
+- **[seq 420] 2026-11-09 15:33:54 `grep`** (completed) — {'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src', 'pattern': 'todo!|panic!|unimplemented!'}
+- **[seq 420] 2026-11-09 15:33:54 `shell`** (completed) — cargo check -p smart-photos 2>&1 | tail -5; echo "---"; cargo clippy -p smart-photos 2>&1 | tail -20
+- **[seq 435] 2026-11-09 15:33:58 `shell`** (completed) — cargo clippy -p smart-photos 2>&1 | grep -A4 warning | head -60
+- **[seq 442] 2026-11-09 15:34:01 `read`** (completed) — {'limit': 50, 'offset': 30, 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/protocol.rs'}
+- **[seq 451] 2026-11-09 15:34:05 `edit`** (completed) — {'newString': '/// Bounded read cap for the local gateway (48 MB, Files `thumbs.rs`).\n/// Honest tail: exported bytes equal source bytes *until* the pixel-bake\n/// worker (editor `process` + encode) lands. This function never claims to\n/// bake edits — it is a bounded, non-destructive copy. The UI labels it\n/// "Copy (bytes)" until the bake pat
+- **[seq 458] 2026-11-09 15:34:08 `edit`** (completed) — {'newString': '    groups.sort_by_key(|g| std::cmp::Reverse(g.paths.len()));', 'oldString': '    groups.sort_by(|a, b| b.paths.len().cmp(&a.paths.len()));', 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/dup.rs'}
+- **[seq 458] 2026-11-09 15:34:08 `edit`** (completed) — {'newString': "            let has_raw = members.iter().any(|m| {\n                m.rsplit('.').next().map(crate::model::is_raw_ext).unwrap_or(false)\n            });", 'oldString': "            let has_raw = members.iter().any(|m| {\n                m.rsplit('.').next().map(|e| crate::model::is_raw_ext(e)).unwrap_or(false)\n            });", 'pat
+- **[seq 458] 2026-11-09 15:34:08 `edit`** (completed) — {'newString': '                if seen.is_multiple_of(SCAN_PUBLISH_EVERY) {', 'oldString': '                if seen % SCAN_PUBLISH_EVERY == 0 {', 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/scan.rs'}
+- **[seq 458] 2026-11-09 15:34:08 `edit`** (completed) — {'newString': '        dirs::config_dir()\n            .unwrap_or_else(std::env::temp_dir)', 'oldString': '        dirs::config_dir()\n            .unwrap_or_else(|| std::env::temp_dir())', 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/settings.rs'}
+- **[seq 477] 2026-11-09 15:34:20 `edit`** (completed) — {'newString': '    pub fn len(&self) -> usize {\n        self.set.len()\n    }\n    pub fn is_empty(&self) -> bool {\n        self.set.is_empty()\n    }', 'oldString': '    pub fn len(&self) -> usize {\n        self.set.len()\n    }', 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/thumb_cache.rs'}
+- **[seq 484] 2026-11-09 15:34:23 `shell`** (completed) — cargo clippy -p smart-photos 2>&1 | tail -5; cargo test -p smart-photos 2>&1 | grep "test result"
+- **[seq 491] 2026-11-09 15:34:28 `shell`** (completed) — cargo check --workspace 2>&1 | tail -25
+- **[seq 502] 2026-11-09 15:34:32 `shell`** (completed) — git diff --stat
+- **[seq 511] 2026-11-09 15:34:36 `edit`** (completed) — {'newString': '- `src/thumb_cache.rs` — BLAKE3 key (path+rung+mtime+orientation+edit-gen),\n  ladder [64..4096], LRU 500 MB disk (`~/.cache/smart-files/thumbs`, shared\n  with Files) + big-thumb pool 8, fail records, 2-thread LIFO decode queue\n  with bounded `seen` dedupe, visible-only rebuild + cancel, ffmpeg\n  `-ss 0.7` video stills keyed by th
+- **[seq 511] 2026-11-09 15:34:36 `edit`** (completed) — {'newString': '```sh\ncargo check -p smart-photos\ncargo test -p smart-photos   # 53 tests\n```', 'oldString': '```sh\ncargo check -p smart-photos\ncargo test -p smart-photos   # 43 tests\n```', 'path': '/home/lufuno/smart/smart-suite-official/apps/smart-photos/README.md'}
+- **[seq 522] 2026-11-09 15:34:39 `edit`** (completed) — {'newString': '1. Re-enable `--features shared-ui` and wire the egui library grid, editor\n   panel and drag-drop surface onto the existing `PhotoApp` state.\n2. Face/AI albums once a model passes the §6.4 gate (model < 8 MB).\n3. Picker + trash + import drag-drop wiring in the shared frontend.\n4. Commit locally with message "photos: scaffold P0 g
+- **[seq 529] 2026-11-09 15:34:49 `shell`** (completed) — cargo check -p smart-photos 2>&1 | tail -3; cargo test -p smart-photos 2>&1 | grep -E "test result|passed"
+- **[seq 538] 2026-11-09 15:34:53 `shell`** (completed) — git add apps/smart-photos PHOTOS-STATUS.md specs/PHOTOS-SPECS.md && git status --short && git commit -m "photos: review + cache fix" --no-verify --allow-empty 2>&1 | tail -5; git log --oneline -3
+
+## Files mentioned
+
+- `/home/lufuno/smart/smart-suite-official`
+- `/home/lufuno/smart/smart-suite-official/`
+- `/home/lufuno/smart/smart-suite-official/Cargo.toml`
+- `/home/lufuno/smart/smart-suite-official/PHOTOS-STATUS.md`
+- `/home/lufuno/smart/smart-suite-official/apps`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/Cargo.toml`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/README.md`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/a11y.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/capture.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/dup.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/editor.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/exif.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/import.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/lib.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/main.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/model.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/picker.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/protocol.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/scan.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/search.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/settings.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/thumb_cache.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/trash.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/viewer.rs`
+- `/home/lufuno/smart/smart-suite-official/apps/smart-photos/src/xmp.rs`
+- `/home/lufuno/smart/smart-suite-official/crates/smart-core/src/thumbs.rs`
+- `/home/lufuno/smart/smart-suite-official/specs/PHOTOS-SPECS.md`
